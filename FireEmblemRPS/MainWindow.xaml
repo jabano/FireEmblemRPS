@@ -8,7 +8,7 @@
          ResizeMode="NoResize"
         Title="Fire Emblem: Rock-Paper-Scissors" Height="600" Width="600">
 
-    <Grid>
+    <Grid Name="rpsGrid">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -27,7 +27,12 @@
         </Border>
 
         <Border Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Background="#9dc0d4">
-            <TextBlock  Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalAlignment="Center" Padding="20" Background="#9dc0d4" FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center">This game was inspired by the Fire Emblem series' weapon triangle. Select the superior weapon/hero to defeat your foe.</TextBlock>
+            <TextBlock  Grid.ColumnSpan="2" Background="#9dc0d4"
+                        TextWrapping="Wrap"                        
+                        VerticalAlignment="Center" HorizontalAlignment="Center"  Padding="20" 
+                        FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold">
+                This game was inspired by the Fire Emblem series' weapon triangle. Select the superior weapon/hero to defeat your foe.
+            </TextBlock>
         </Border>
 
         <Button Grid.Column ="0" Grid.Row="1" Grid.RowSpan="2" Click="btnLance_Click" Name="Lance">
@@ -49,15 +54,30 @@
                 <Image Source="LynSword.png" Height="257" />
             </StackPanel>
         </Button>
+        
         <Border Grid.Column="0" Grid.Row="3" Background="#9dc0d4">
-            <TextBox Grid.Column="0" Grid.Row="3" Name="PlayerBox" TextWrapping="Wrap" VerticalAlignment="Center" Padding="20" Background="#9dc0d4" FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center"  IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="0" Grid.Row="3" Background="#9dc0d4"
+                     Name="PlayerBox" TextWrapping="Wrap" Text="{Binding Path=PlayerText, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"  
+                     FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold"   
+                     IsReadOnly="True">
+                
+            </TextBox>
         </Border>
+        
         <Border Grid.Column="3" Grid.Row="3" Background="#9dc0d4">
-            <TextBox Grid.Column="3" Grid.Row="3" Name="PcBox" TextWrapping="Wrap" VerticalAlignment="Center" Padding="20" Background="#9dc0d4" FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center"  IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="3" Grid.Row="3" Background="#9dc0d4"
+                     Name="PcBox" TextWrapping="Wrap" Text="{Binding Path=PcText, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" 
+                     FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold"  
+                     IsReadOnly="True"/>
         </Border>
 
         <Border Grid.Column="1" Grid.Row="3" Background="#9dc0d4">
-            <TextBox Grid.Column="1" Grid.Row="3" Name="ResultBox" TextWrapping="Wrap" VerticalAlignment="Center" Padding="20" Background="#9dc0d4" FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center" IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="3"  Background="#9dc0d4"
+                     Name="ResultBox" TextWrapping="Wrap" Text="{Binding Path=ResultText, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Center" Padding="20" HorizontalAlignment="Center"
+                     FontFamily="Helvetica" FontSize="16" FontWeight="SemiBold" IsReadOnly="True"/>
         </Border>
 
     </Grid>
